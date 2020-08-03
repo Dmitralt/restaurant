@@ -1,3 +1,4 @@
+"use strict";
 var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
     function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
     return new (P || (P = Promise))(function (resolve, reject) {
@@ -34,210 +35,42 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
         if (op[0] & 5) throw op[1]; return { value: op[0] ? op[1] : void 0, done: true };
     }
 };
-var requestify = require('requestify');
-var exeption = "error";
-var APIRequests = /** @class */ (function () {
-    function APIRequests(address) {
-        this.address = address;
-    }
-    APIRequests.prototype.getmarker = function (user_id, user_secret) {
-        return __awaiter(this, void 0, void 0, function () {
-            var a, _a;
-            return __generator(this, function (_b) {
-                switch (_b.label) {
-                    case 0:
-                        _b.trys.push([0, 2, , 3]);
-                        return [4 /*yield*/, requestify.get(this.address + '/auth/access_token?user_id=' + user_id + '&user_secret=' + user_secret)];
-                    case 1:
-                        a = _b.sent();
-                        return [2 /*return*/, (a.getBody())];
-                    case 2:
-                        _a = _b.sent();
-                        return [2 /*return*/, exeption];
-                    case 3: return [2 /*return*/];
-                }
-            });
-        });
-    };
-    APIRequests.prototype.setcurentmarker = function (user_id, user_secret) {
-        return __awaiter(this, void 0, void 0, function () {
-            var a, _a;
-            return __generator(this, function (_b) {
-                switch (_b.label) {
-                    case 0:
-                        _b.trys.push([0, 2, , 3]);
-                        return [4 /*yield*/, requestify.get(this.address + '/auth/access_token?user_id=' + user_id + '&user_secret=' + user_secret)];
-                    case 1:
-                        a = _b.sent();
-                        this.curent_marker = a.getBody();
-                        return [2 /*return*/, "done"];
-                    case 2:
-                        _a = _b.sent();
-                        return [2 /*return*/, exeption];
-                    case 3: return [2 /*return*/];
-                }
-            });
-        });
-    };
-    //https://iiko.biz:9900/api/0/nomenclature/0beff7b8-8f87-11ea-80f4-d8d38565926f?access_token=X4XMwv6gBmWWUcvatJaKILUs0mEzilxByH8N23FXQMKRhk1Bfv18OA0sH9bsBSqCMORIHQ_Db8HR2zooV2pJ9g2
-    // /api/0/nomenclature/{organizationId}?access_token={accessToken}
-    //НОМЕНКЛАТУРА
-    //0beff7b8-8f87-11ea-80f4-d8d38565926f -organisationid
-    APIRequests.prototype.getnomenclature = function (organisation_id, accessToken) {
-        return __awaiter(this, void 0, void 0, function () {
-            var a, _a;
-            return __generator(this, function (_b) {
-                switch (_b.label) {
-                    case 0:
-                        _b.trys.push([0, 2, , 3]);
-                        return [4 /*yield*/, requestify.get(this.address + "/nomenclature/" + organisation_id + "?access_token=" + accessToken)];
-                    case 1:
-                        a = _b.sent();
-                        return [2 /*return*/, (a.getBody())];
-                    case 2:
-                        _a = _b.sent();
-                        return [2 /*return*/, exeption];
-                    case 3: return [2 /*return*/];
-                }
-            });
-        });
-    };
-    APIRequests.prototype.getgroups = function (organisation_id, accessToken) {
-        return __awaiter(this, void 0, void 0, function () {
-            var a, _a;
-            return __generator(this, function (_b) {
-                switch (_b.label) {
-                    case 0:
-                        _b.trys.push([0, 2, , 3]);
-                        return [4 /*yield*/, requestify.get(this.address + "/nomenclature/" + organisation_id + "?access_token=" + accessToken)];
-                    case 1:
-                        a = _b.sent();
-                        return [2 /*return*/, (a.getBody()["groups"])];
-                    case 2:
-                        _a = _b.sent();
-                        return [2 /*return*/, exeption];
-                    case 3: return [2 /*return*/];
-                }
-            });
-        });
-    };
-    APIRequests.prototype.getproductCategories = function (organisation_id, accessToken) {
-        return __awaiter(this, void 0, void 0, function () {
-            var a, _a;
-            return __generator(this, function (_b) {
-                switch (_b.label) {
-                    case 0:
-                        _b.trys.push([0, 2, , 3]);
-                        return [4 /*yield*/, requestify.get(this.address + "/nomenclature/" + organisation_id + "?access_token=" + accessToken)];
-                    case 1:
-                        a = _b.sent();
-                        return [2 /*return*/, (a.getBody()["productCategories"])];
-                    case 2:
-                        _a = _b.sent();
-                        return [2 /*return*/, exeption];
-                    case 3: return [2 /*return*/];
-                }
-            });
-        });
-    };
-    APIRequests.prototype.getproducts = function (organisation_id, accessToken) {
-        return __awaiter(this, void 0, void 0, function () {
-            var a, _a;
-            return __generator(this, function (_b) {
-                switch (_b.label) {
-                    case 0:
-                        _b.trys.push([0, 2, , 3]);
-                        return [4 /*yield*/, requestify.get(this.address + "/nomenclature/" + organisation_id + "?access_token=" + accessToken)];
-                    case 1:
-                        a = _b.sent();
-                        return [2 /*return*/, (a.getBody()["products"])];
-                    case 2:
-                        _a = _b.sent();
-                        return [2 /*return*/, exeption];
-                    case 3: return [2 /*return*/];
-                }
-            });
-        });
-    };
-    APIRequests.prototype.getrevision = function (organisation_id, accessToken) {
-        return __awaiter(this, void 0, void 0, function () {
-            var a, _a;
-            return __generator(this, function (_b) {
-                switch (_b.label) {
-                    case 0:
-                        _b.trys.push([0, 2, , 3]);
-                        return [4 /*yield*/, requestify.get(this.address + "/nomenclature/" + organisation_id + "?access_token=" + accessToken)];
-                    case 1:
-                        a = _b.sent();
-                        return [2 /*return*/, (a.getBody()["revision"])];
-                    case 2:
-                        _a = _b.sent();
-                        return [2 /*return*/, exeption];
-                    case 3: return [2 /*return*/];
-                }
-            });
-        });
-    };
-    APIRequests.prototype.getuploadDate = function (organisation_id, accessToken) {
-        return __awaiter(this, void 0, void 0, function () {
-            var a, _a;
-            return __generator(this, function (_b) {
-                switch (_b.label) {
-                    case 0:
-                        _b.trys.push([0, 2, , 3]);
-                        return [4 /*yield*/, requestify.get(this.address + "/nomenclature/" + organisation_id + "?access_token=" + accessToken)];
-                    case 1:
-                        a = _b.sent();
-                        return [2 /*return*/, (a.getBody()["uploadDate"])];
-                    case 2:
-                        _a = _b.sent();
-                        return [2 /*return*/, exeption];
-                    case 3: return [2 /*return*/];
-                }
-            });
-        });
-    };
-    ///api/0/cities/cities?access_token={accessToken}&organization={organizationId}
-    //города
-    APIRequests.prototype.getcities = function (organisation_id, accessToken) {
-        return __awaiter(this, void 0, void 0, function () {
-            var a, _a;
-            return __generator(this, function (_b) {
-                switch (_b.label) {
-                    case 0:
-                        _b.trys.push([0, 2, , 3]);
-                        return [4 /*yield*/, requestify.get(this.address + "/cities/citiesList?access_token=" + accessToken + "&organization=" + organisation_id)];
-                    case 1:
-                        a = _b.sent();
-                        return [2 /*return*/, (a.getBody())];
-                    case 2:
-                        _a = _b.sent();
-                        return [2 /*return*/, exeption];
-                    case 3: return [2 /*return*/];
-                }
-            });
-        });
-    };
-    return APIRequests;
-}());
+exports.__esModule = true;
+var API_QuerryClass_1 = require("./API_QuerryClass");
+var fs = require("fs");
 function WorkFunction() {
     return __awaiter(this, void 0, void 0, function () {
-        var a, marker, nomenclature, cities;
+        var api, marker, nomenclature, stoplist;
         return __generator(this, function (_a) {
             switch (_a.label) {
                 case 0:
-                    a = new APIRequests("https://iiko.biz:9900/api/0");
-                    return [4 /*yield*/, a.setcurentmarker("publicistAPI", "tRxa25T1P9")];
+                    api = new API_QuerryClass_1.APIRequests("https://iiko.biz:9900/api/0");
+                    return [4 /*yield*/, api.setcurentmarker("publicistAPI", "tRxa25T1P9")]; //TODO: получаем маркер  
                 case 1:
-                    _a.sent();
-                    marker = a.curent_marker;
-                    return [4 /*yield*/, a.getnomenclature("0beff7b8-8f87-11ea-80f4-d8d38565926f", marker)];
+                    _a.sent(); //TODO: получаем маркер  
+                    marker = api.curent_marker;
+                    return [4 /*yield*/, api.getnomenclature("0beff7b8-8f87-11ea-80f4-d8d38565926f", marker)]; //TODO: получаем номенклатуру (нужна для формирования таблицы под языки)
                 case 2:
-                    nomenclature = _a.sent();
-                    return [4 /*yield*/, a.getcities("0beff7b8-8f87-11ea-80f4-d8d38565926f", marker)];
+                    nomenclature = _a.sent() //TODO: получаем номенклатуру (нужна для формирования таблицы под языки)
+                    ;
+                    return [4 /*yield*/, api.getDeliveryStopList("0beff7b8-8f87-11ea-80f4-d8d38565926f", marker)
+                        //await api.CoreJSONcreator(nomenclature,"nomenclatureJSON.json");//TODO: создание центрального Джейсон файла по номенклатуре
+                        //await api.CreateTable("nomenclatureJSON.json")//TODO: создание таблицы в гугл докс на основе Кор-джейсона
+                        //await api.LoadFromTable("nomenclatureJSON.json") //TODO: обновление Кор-джейсона по гугл-таблице
+                    ];
                 case 3:
-                    cities = _a.sent();
-                    console.log(cities);
+                    stoplist = _a.sent();
+                    //await api.CoreJSONcreator(nomenclature,"nomenclatureJSON.json");//TODO: создание центрального Джейсон файла по номенклатуре
+                    //await api.CreateTable("nomenclatureJSON.json")//TODO: создание таблицы в гугл докс на основе Кор-джейсона
+                    //await api.LoadFromTable("nomenclatureJSON.json") //TODO: обновление Кор-джейсона по гугл-таблице
+                    return [4 /*yield*/, api.CreateAnswerJSON("result.json", "nomenclatureJSON.json", "stoplistJSON.json")
+                        //await api.CreateStoplistJSON(stoplist,"stoplistJSON.json")//TODO: превращает полученный по запросу стоплист в Джейсон файл.
+                    ]; //превращение кор-джейсона в вид для фронтенда/ стоплист - не обязательный параметр
+                case 4:
+                    //await api.CoreJSONcreator(nomenclature,"nomenclatureJSON.json");//TODO: создание центрального Джейсон файла по номенклатуре
+                    //await api.CreateTable("nomenclatureJSON.json")//TODO: создание таблицы в гугл докс на основе Кор-джейсона
+                    //await api.LoadFromTable("nomenclatureJSON.json") //TODO: обновление Кор-джейсона по гугл-таблице
+                    _a.sent(); //превращение кор-джейсона в вид для фронтенда/ стоплист - не обязательный параметр
                     return [2 /*return*/];
             }
         });
